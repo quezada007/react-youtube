@@ -1,0 +1,21 @@
+$textColor: #333;
+$hoverColor: #eee;
+
+#video-details {
+    .channel, .published-date {
+        margin-bottom: 10px;
+    }
+}
+
+#video-list {
+    a {
+        color: $textColor;
+        padding: 10px;
+        border: 1px solid $hoverColor;
+
+        &:hover {
+            text-decoration: none;
+            background-color: $hoverColor;
+        }
+    }
+}
