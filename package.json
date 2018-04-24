@@ -3,6 +3,10 @@
     "version": "1.0.0",
     "description": "A React app that connects to the YouTube API",
     "main": "main.js",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/quezada007/react-youtube.git"
+    },
     "scripts": {
         "clean": "rimraf dist",
         "clean:cov": "rimraf coverage",
