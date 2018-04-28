@@ -4,7 +4,7 @@ import VideoListItem from './video-list-item';
 
 const VideoList = ({videoList, onVideoSelect}) => {
     if (videoList.length === 0) {
-        return <div>Loading...</div>;
+        return <div className="col-md-4 col-lg-5">Loading...</div>;
     }
     let videos = videoList.map(video => {
         return <VideoListItem key={video.id.videoId} video={video} onVideoSelect={onVideoSelect} />;

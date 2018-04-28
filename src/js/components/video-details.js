@@ -2,9 +2,15 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import moment from "moment";
 
-const VideoDetails = ({selectedVideo}) => {
+const VideoDetails = ({selectedVideo, errorMsg}) => {
+    if (errorMsg !== '') {
+        return (
+            <div className="col-md-8 col-lg-7 mb-4">{errorMsg}</div>
+        );
+    }
+
     if (selectedVideo === null) {
-        return <div>Loading...</div>;
+        return <div className="col-md-8 col-lg-7 mb-4">Loading...</div>;
     }
 
     let url = `https://www.youtube.com/embed/${selectedVideo.id.videoId}`,
@@ -27,7 +33,8 @@ const VideoDetails = ({selectedVideo}) => {
 };
 
 VideoDetails.propTypes = {
-    selectedVideo: PropTypes.object
+    selectedVideo: PropTypes.object,
+    errorMsg: PropTypes.string
 };
 
 export default VideoDetails;

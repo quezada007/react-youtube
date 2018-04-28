@@ -16,10 +16,11 @@ export default class App extends React.Component {
 
         this.state = {
             videos: [],
-            selectedVideo: null
+            selectedVideo: null,
+            errorMsg: ''
         };
         this.searchVideos = this.searchVideos.bind(this);
-        this.searchVideos('react js');
+        this.searchVideos('');
     }
 
     searchVideos(searchTerm) {
@@ -29,11 +30,14 @@ export default class App extends React.Component {
             .then(response => {
                 this.setState({
                     videos: response.data.items,
-                    selectedVideo: response.data.items[0]
+                    selectedVideo: response.data.items[0],
+                    errorMsg: response.data.items.length === 0 ? `${searchTerm} didn't yield any results. Please search for something else.` : ''
                 });
             })
             .catch(error => {
-                console.log(error);
+                this.setState({
+                    errorMsg: error.message
+                });
             });
     }
 
@@ -46,7 +50,7 @@ export default class App extends React.Component {
             <div className="container-fluid">
                 <SearchBar onVideoSearch={this.searchVideos} />
                 <div className="row">
-                    <VideoDetails selectedVideo={this.state.selectedVideo} />
+                    <VideoDetails selectedVideo={this.state.selectedVideo} errorMsg={this.state.errorMsg} />
                     <VideoList videoList={this.state.videos} onVideoSelect={this.onVideoSelect.bind(this)} />
                 </div>
             </div>
