@@ -24,7 +24,7 @@ const VideoDetails = ({selectedVideo, errorMsg}) => {
             </div>
             <h1 className="mt-3">{selectedVideo.snippet.title}</h1>
             <div className="description">
-                <div className="channel"><strong>Channel Title: </strong> <a href={channelURL} target="_blank">{selectedVideo.snippet.channelTitle}</a></div>
+                <div className="channel"><strong>Channel Title: </strong> <a href={channelURL} target="_blank" rel="noopener noreferrer">{selectedVideo.snippet.channelTitle}</a></div>
                 <div className="published-date"><strong>Published: </strong> {publishedDate}</div>
                 <p>{selectedVideo.snippet.description}</p>
             </div>
