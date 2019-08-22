@@ -10,25 +10,28 @@ export default class SearchBar extends React.Component {
     }
 
     onInputChange(event) {
-        this.setState({searchTerm: event.target.value});
+        this.setState({ searchTerm: event.target.value });
     }
 
     onFormSubmit(event) {
         event.preventDefault();
-        this.props.onVideoSearch(this.state.searchTerm);
+        const { onVideoSearch } = this.props;
+        const { searchTerm } = this.state;
+        onVideoSearch(searchTerm);
     }
 
     render() {
+        const { searchTerm } = this.state;
         return (
             <form className="mt-3 mb-3" onSubmit={this.onFormSubmit.bind(this)}>
                 <div className="row">
                     <div className="form-group col-sm-10">
-                        <label className="sr-only" htmlFor="search">Search for YouTube videos</label>
+                        <label htmlFor="searchInput" className="sr-only">Search for YouTube videos</label>
                         <input
                             type="search"
-                            id="search"
+                            id="searchInput"
                             className="form-control form-control-lg"
-                            value={this.state.searchTerm}
+                            value={searchTerm}
                             onChange={this.onInputChange.bind(this)}
                             placeholder="Search for YouTube videos"
                         />
@@ -44,4 +47,8 @@ export default class SearchBar extends React.Component {
 
 SearchBar.propTypes = {
     onVideoSearch: PropTypes.func
+};
+
+SearchBar.defaultProps = {
+    onVideoSearch: () => {}
 };
