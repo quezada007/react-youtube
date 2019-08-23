@@ -20,7 +20,17 @@ const VideoListItem = ({ video, onVideoSelect }) => {
 };
 
 VideoListItem.propTypes = {
-    video: PropTypes.shape.isRequired,
+    video: PropTypes.shape({
+        snippet: PropTypes.shape({
+            title: PropTypes.string,
+            publishedAt: PropTypes.string,
+            thumbnails: PropTypes.shape({
+                default: PropTypes.shape({
+                    url: PropTypes.string
+                })
+            })
+        }).isRequired
+    }).isRequired,
     onVideoSelect: PropTypes.func.isRequired
 };
 

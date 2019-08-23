@@ -1,5 +1,5 @@
 import React from 'react';
-import PropType from 'prop-types';
+import PropTypes from 'prop-types';
 import VideoListItem from './VideoListItem';
 
 const VideoList = ({ videoList, onVideoSelect }) => {
@@ -15,8 +15,21 @@ const VideoList = ({ videoList, onVideoSelect }) => {
 };
 
 VideoList.propTypes = {
-    videoList: PropType.arrayOf.isRequired,
-    onVideoSelect: PropType.func.isRequired
+    videoList: PropTypes.arrayOf(
+        PropTypes.shape({
+            id: PropTypes.shape({
+                videoId: PropTypes.string.isRequired
+            }).isRequired,
+            snippet: PropTypes.shape({
+                title: PropTypes.string,
+                description: PropTypes.string,
+                publishedAt: PropTypes.string,
+                channelId: PropTypes.string,
+                channelTitle: PropTypes.string
+            }).isRequired
+        }).isRequired
+    ).isRequired,
+    onVideoSelect: PropTypes.func.isRequired
 };
 
 export default VideoList;

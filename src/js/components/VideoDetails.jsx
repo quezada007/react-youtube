@@ -39,12 +39,23 @@ const VideoDetails = ({ selectedVideo, errorMsg }) => {
 };
 
 VideoDetails.propTypes = {
-    selectedVideo: PropTypes.shape,
+    selectedVideo: PropTypes.shape({
+        id: PropTypes.shape({
+            videoId: PropTypes.string.isRequired
+        }).isRequired,
+        snippet: PropTypes.shape({
+            title: PropTypes.string,
+            description: PropTypes.string,
+            publishedAt: PropTypes.string,
+            channelId: PropTypes.string,
+            channelTitle: PropTypes.string
+        }).isRequired
+    }),
     errorMsg: PropTypes.string
 };
 
 VideoDetails.defaultProps = {
-    selectedVideo: {},
+    selectedVideo: null,
     errorMsg: 'error'
 };
 
