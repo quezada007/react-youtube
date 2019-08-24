@@ -9,10 +9,13 @@ $hoverColor: #EEEEEE;
 }
 
 #video-list {
-    a {
+    button {
         color: $textColor;
         padding: 10px;
         border: 1px solid $hoverColor;
+        text-align: left;
+        cursor: pointer;
+        width: 100%;
 
         &:hover {
             text-decoration: none;
