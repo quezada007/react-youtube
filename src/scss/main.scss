@@ -1,8 +1,9 @@
-$textColor: #333;
-$hoverColor: #eee;
+$textColor: #333333;
+$hoverColor: #EEEEEE;
 
 #video-details {
-    .channel, .published-date {
+    .channel,
+    .published-date {
         margin-bottom: 10px;
     }
 }

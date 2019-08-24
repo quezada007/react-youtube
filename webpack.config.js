@@ -1,7 +1,8 @@
 /* eslint-disable */
 const path = require('path');
-const HtmlWebPackPlugin = require("html-webpack-plugin");
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const HtmlWebPackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const StyleLintPlugin = require('stylelint-webpack-plugin');
 
 module.exports = {
     entry: './src/js/App.jsx',
@@ -78,7 +79,8 @@ module.exports = {
         }),
         new MiniCssExtractPlugin({
             filename: 'css/[name].css'
-        })
+        }),
+        new StyleLintPlugin()
     ],
     devtool: 'source-map'
 };
