@@ -9,7 +9,7 @@ import SearchBar from './components/SearchBar';
 import VideoDetails from './components/VideoDetails';
 import VideoList from './components/VideoList';
 
-const API_KEY = 'AIzaSyAcZRe4eQy3BaJkqxrrvOw6Xc6JNgWnqZk';
+const API_KEY = 'AIzaSyA0Tv7U7H_fSscAIhdpE2aMcnjAefFyLVQ';
 
 export default class App extends React.Component {
     constructor(props) {
